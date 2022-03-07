@@ -31,7 +31,7 @@ type Board struct {
 	Iteration int64 `json:"iteration"`
 	Links []interface{} `json:"links"`
 	LiveNow bool `json:"liveNow"`
-	Panels []*Panel `json:"panels"`
+	Panels []Panel `json:"panels"`
 	Refresh string `json:"refresh"`
 	SchemaVersion int `json:"schemaVersion"`
 	Templating Templating `json:"templating"`
