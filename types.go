@@ -1,5 +1,8 @@
 package gografana
 
+
+
+
 import (
 	"encoding/json"
 	"time"
@@ -31,7 +34,7 @@ type Board struct {
 	Iteration int64 `json:"iteration"`
 	Links []interface{} `json:"links"`
 	LiveNow bool `json:"liveNow"`
-	Panels []Panel `json:"panels"`
+	Panels []*Panel `json:"panels"`
 	Refresh string `json:"refresh"`
 	SchemaVersion int `json:"schemaVersion"`
 	Templating Templating `json:"templating"`
@@ -78,6 +81,16 @@ type Templating struct {
 		UseTags bool `json:"useTags,omitempty"`
 	} `json:"list"`
 }
+
+type Custom struct {
+}
+type Defaults struct {
+	Custom Custom `json:"custom"`
+}
+type FieldConfig struct {
+	Defaults Defaults `json:"defaults"`
+	Overrides []interface{} `json:"overrides"`
+}
 type Panel struct {
 	CacheTimeout interface{} `json:"cacheTimeout,omitempty"`
 	ColorBackground bool `json:"colorBackground,omitempty"`
@@ -86,13 +99,7 @@ type Panel struct {
 	Datasource interface{} `json:"datasource"`
 	Editable bool `json:"editable"`
 	Error bool `json:"error"`
-	FieldConfig struct {
-		Defaults struct {
-			Custom struct {
-			} `json:"custom"`
-		} `json:"defaults"`
-		Overrides []interface{} `json:"overrides"`
-	} `json:"fieldConfig"`
+	FieldConfig *FieldConfig`json:"fieldConfig,omitempty"`
 	Format string `json:"format,omitempty"`
 	Gauge struct {
 		MaxValue int `json:"maxValue"`
