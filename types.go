@@ -62,23 +62,27 @@ type Templating struct {
 		} `json:"current,omitempty"`
 		Hide int `json:"hide"`
 		IncludeAll bool `json:"includeAll"`
-		Label string `json:"label"`
 		Multi bool `json:"multi"`
 		Name string `json:"name"`
 		Options []interface{} `json:"options"`
-		Query string `json:"query"`
+		Query interface{} `json:"query"`
+		QueryValue string `json:"queryValue"`
 		Refresh int `json:"refresh"`
 		Regex string `json:"regex"`
 		SkipURLSync bool `json:"skipUrlSync"`
 		Type string `json:"type"`
-		AllValue interface{} `json:"allValue,omitempty"`
-		Datasource string `json:"datasource,omitempty"`
-		Definition string `json:"definition,omitempty"`
-		Sort int `json:"sort,omitempty"`
-		TagValuesQuery string `json:"tagValuesQuery,omitempty"`
-		Tags []interface{} `json:"tags,omitempty"`
-		TagsQuery string `json:"tagsQuery,omitempty"`
-		UseTags bool `json:"useTags,omitempty"`
+		AllValue interface{} `json:"allValue"`
+		Datasource interface{} `json:"datasource"`
+		Definition string `json:"definition"`
+		Label string `json:"label"`
+		Sort int `json:"sort"`
+		TagValuesQuery string `json:"tagValuesQuery"`
+		Tags []interface{} `json:"tags"`
+		TagsQuery string `json:"tagsQuery"`
+		UseTags bool `json:"useTags"`
+		Auto bool `json:"auto"`
+		AutoCount int `json:"auto_count"`
+		AutoMin string `json:"auto_min"`
 	} `json:"list"`
 }
 
